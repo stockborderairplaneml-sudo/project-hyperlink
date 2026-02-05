@@ -1,10 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Link Berhadia</title>
+  <meta charset="utf-8" />
+  <title>Link Berhadia</title>
+  <style>
+    /* Gaya tombol "fisik" */
+    .btn-physical {
+      display: inline-block;
+      padding: 14px 22px;
+      background: linear-gradient(#f9f9f9, #e6e6e6);
+      color: #111;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid #bbb;
+      border-radius: 10px;
+      box-shadow: 0 8px 0 #b0b0b0, 0 12px 18px rgba(0,0,0,0.12);
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+      user-select: none;
+      -webkit-user-select: none;
+      cursor: pointer;
+    }
+
+    /* Efek hover */
+    .btn-physical:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 0 #a6a6a6, 0 14px 22px rgba(0,0,0,0.14);
+    }
+
+    /* Efek ditekan (seolah tombol fisik tertekan) */
+    .btn-physical:active,
+    .btn-physical.pressed {
+      transform: translateY(4px);
+      box-shadow: 0 4px 0 #9a9a9a, 0 6px 10px rgba(0,0,0,0.08);
+    }
+
+    /* Fokus keyboard (aksesibilitas) */
+    .btn-physical:focus {
+      outline: 3px solid rgba(21,156,228,0.3);
+      outline-offset: 4px;
+    }
+
+    /* Variasi warna (opsional) */
+    .btn-primary {
+      background: linear-gradient(#007bff, #005ec2);
+      color: white;
+      border-color: #0056b3;
+      box-shadow: 0 8px 0 #0b59a3, 0 12px 18px rgba(0,0,0,0.18);
+    }
+
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; padding: 24px; }
+  </style>
 </head>
 <body>
-    <h2>Link Berhadia Besar</h2>
-    <a href="https://185.63.253.200/">Dapat Kan Hadiah Menarik Disini</a>
+  <h2>Link Berhadia Besar</h2>
+
+  <!-- Tombol link utama (membuka di tab baru) -->
+  <a
+    class="btn-physical btn-primary"
+    href="https://185.63.253.200/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Dapatkan hadiah — membuka di tab baru">
+    Dapatkan Hadiah
+  </a>
+
+  <p style="margin-top:18px;">
+    Jika Anda ingin URL terlihat juga: 
+    <a href="https://185.63.253.200/">https://185.63.253.200/</a>
+  </p>
+
+  <!-- Alternatif: tombol <button> yang melakukan navigasi (lebih cocok jika butuh formulir atau skrip) -->
+  <p>
+    <button onclick="window.open('https://185.63.253.200/', '_blank', 'noopener')" style="padding:10px 14px;border-radius:8px;">
+      Tombol (Versi &lt;button&gt;)
+    </button>
+  </p>
+
+  <script>
+    // (Opsional) beri umpan balik visual singkat saat tombol diklik pada perangkat sentuh
+    document.querySelectorAll('.btn-physical').forEach(btn => {
+      btn.addEventListener('touchstart', () => btn.classList.add('pressed'));
+      btn.addEventListener('touchend', () => btn.classList.remove('pressed'));
+    });
+  </script>
 </body>
 </html>
